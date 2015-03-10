@@ -247,6 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <button type="submit">编辑</button>
 	                </form>	
 	                </td>
+	                
 	                 
 	              </tr>
               <%  
@@ -452,6 +453,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <th width="100">介绍</th>
                 <th width="100">邮箱</th>
                 <th width="50"></th>
+                <th width="50"></th>
                 
               </tr>
               
@@ -475,6 +477,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              		<input name="authority" style="display:none;"  type="text" value="<%=t.getAuthority()%>">
 	              		<input name="email" style="display:none;" type="text" value="<%=t.getEmail()%>">
 		                <button type="submit">编辑</button>
+	                </form>
+	                </td>
+	                <td> 
+	                <form action="servlet/DeleteTeacher" method="post">
+	                	<input name="name" style="display:none;" type="text" value="<%=t.getNickname()%>">
+		                <button type="submit">删除</button>
 	                </form>
 	                </td>
 	                </tr>

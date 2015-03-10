@@ -615,5 +615,21 @@ public class TeacherDAO implements ITeacherDAO{
 		DB.close(ps);
 		DB.close(conn);
 	}
+	
+	public void deleteTeacher(String username) {
+		Connection conn = DB.createConn();
+		String sql = "delete from t_teacher where nickname = ?";
+		
+		PreparedStatement ps = DB.prepare(conn, sql);
+		try {
+			ps.setString(1, username);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DB.close(ps);
+		DB.close(conn);
+	}
 
 }
