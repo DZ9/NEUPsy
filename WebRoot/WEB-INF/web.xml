@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>NEUPsy</display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.idoxie.control.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowUserIndex</servlet-name>
+    <servlet-class>com.idoxie.control.ShowUserIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddAppointment</servlet-name>
+    <servlet-class>com.idoxie.control.AddAppointment</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>com.idoxie.control.AdminLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddTeacher</servlet-name>
+    <servlet-class>com.idoxie.control.AddTeacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowAdminIndex</servlet-name>
+    <servlet-class>com.idoxie.control.ShowAdminIndex</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddAppointmentByAdmin</servlet-name>
+    <servlet-class>com.idoxie.control.AddAppointmentByAdmin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditTeacher</servlet-name>
+    <servlet-class>com.idoxie.control.EditTeacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateTeacher</servlet-name>
+    <servlet-class>com.idoxie.control.UpdateTeacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditAppointment</servlet-name>
+    <servlet-class>com.idoxie.control.EditAppointment</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateReserve</servlet-name>
+    <servlet-class>com.idoxie.control.UpdateReserve</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExportWord</servlet-name>
+    <servlet-class>com.idoxie.control.ExportWord</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserRegister</servlet-name>
+    <servlet-class>com.idoxie.control.UserRegister</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangePW</servlet-name>
+    <servlet-class>com.idoxie.control.ChangePW</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddMusic</servlet-name>
+    <servlet-class>com.idoxie.control.AddMusic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExportMusic</servlet-name>
+    <servlet-class>com.idoxie.control.ExportMusic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditMusic</servlet-name>
+    <servlet-class>com.idoxie.control.EditMusic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateMusic</servlet-name>
+    <servlet-class>com.idoxie.control.UpdateMusic</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExportExcel</servlet-name>
+    <servlet-class>com.idoxie.control.ExportExcel</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditAppointmentByTeacher</servlet-name>
+    <servlet-class>com.idoxie.control.EditAppointmentByTeacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExportAdvisory</servlet-name>
+    <servlet-class>com.idoxie.control.ExportAdvisory</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/servlet/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowUserIndex</servlet-name>
+    <url-pattern>/servlet/ShowUserIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddAppointment</servlet-name>
+    <url-pattern>/servlet/AddAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/servlet/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddTeacher</servlet-name>
+    <url-pattern>/servlet/AddTeacher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowAdminIndex</servlet-name>
+    <url-pattern>/servlet/ShowAdminIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddAppointmentByAdmin</servlet-name>
+    <url-pattern>/servlet/AddAppointmentByAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditTeacher</servlet-name>
+    <url-pattern>/servlet/EditTeacher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateTeacher</servlet-name>
+    <url-pattern>/servlet/UpdateTeacher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditAppointment</servlet-name>
+    <url-pattern>/servlet/EditAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateReserve</servlet-name>
+    <url-pattern>/servlet/UpdateReserve</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportWord</servlet-name>
+    <url-pattern>/servlet/ExportWord</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserRegister</servlet-name>
+    <url-pattern>/servlet/UserRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangePW</servlet-name>
+    <url-pattern>/servlet/ChangePW</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddMusic</servlet-name>
+    <url-pattern>/servlet/AddMusic</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportMusic</servlet-name>
+    <url-pattern>/servlet/ExportMusic</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditMusic</servlet-name>
+    <url-pattern>/servlet/EditMusic</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateMusic</servlet-name>
+    <url-pattern>/servlet/UpdateMusic</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportExcel</servlet-name>
+    <url-pattern>/servlet/ExportExcel</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditAppointmentByTeacher</servlet-name>
+    <url-pattern>/servlet/EditAppointmentByTeacher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportAdvisory</servlet-name>
+    <url-pattern>/servlet/ExportAdvisory</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

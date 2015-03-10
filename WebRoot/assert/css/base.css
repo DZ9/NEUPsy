@@ -1,0 +1,18 @@
+
+.box {
+    margin-left: 0px;
+    padding: 26px 24px 46px;
+    font-weight: normal;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+    -moz-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+    box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 5px;
+}
+
+.copyright.center {
+    text-align: center;
+}

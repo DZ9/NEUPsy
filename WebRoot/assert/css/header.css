@@ -1,0 +1,28 @@
+*{
+	margin:0;
+	padding:0;
+	border: none;
+}
+body {
+	padding-top:20px;
+	margin:0 auto;
+}
+.list-group a.list-group-item:hover {
+	background-color:#428BCA;
+	color:#fff;
+}
+#header {
+	height:60px;
+	line-height:60px;
+	background:#F0F8FF;
+	border-radius: 4px;
+}
+#header h1 {
+	height:60px;
+	line-height:60px;
+	display:inline;
+}
+
+#login {
+	float:right;
+}
