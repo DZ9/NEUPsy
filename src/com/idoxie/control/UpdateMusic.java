@@ -2,11 +2,18 @@ package com.idoxie.control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.idoxie.dao.impl.TeacherDAO;
 
 public class UpdateMusic extends HttpServlet {
 
@@ -38,19 +45,7 @@ public class UpdateMusic extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		doPost(request,response);
 	}
 
 	/**
@@ -65,20 +60,33 @@ public class UpdateMusic extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the POST method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		HttpSession session = request.getSession();
+		String nickname = (String) session.getAttribute("nickname");
+		
+		if(nickname == null) {
+			RequestDispatcher view =  
+					request.getRequestDispatcher("/view/admin/adminLogin.jsp");
+			view.forward(request, response);
+		}else {
+			String stuNum = new String(request.getParameter("stuNum").getBytes("ISO-8859-1"),"utf-8");
+			String rDateS = new String(request.getParameter("rdate").getBytes("ISO-8859-1"),"utf-8");
+			String type = new String(request.getParameter("type").getBytes("ISO-8859-1"),"utf-8");
+			String advice = new String(request.getParameter("advice").getBytes("ISO-8859-1"),"utf-8");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				Date rDate = sdf1.parse(rDateS);
+				TeacherDAO teacherDAO = new TeacherDAO();
+				teacherDAO.updateMusic(Integer.parseInt(stuNum), rDate, type, advice);
+				RequestDispatcher view =  
+						request.getRequestDispatcher("/view/admin/success.jsp");
+				view.forward(request, response);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
 
 	/**

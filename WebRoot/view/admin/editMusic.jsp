@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.idoxie.model.*,com.idoxie.dao.impl.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.idoxie.model.*,com.idoxie.dao.impl.*,java.text.SimpleDateFormat" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -80,17 +80,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </div>
             
+            <div class="control-group" style="display:none">
+              <span class="control-label"><label for="newpassword">预约日期：</label></span>
+              <div class="controls">
+              	<%
+              		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+              		String rDate = sdf.format(music.getrDate());
+              	 %>
+                 <input size="16" type="text" name="rdate" value="<%=rDate %>" readonly>        
+              </div>
+            </div>
+            
             <div class="control-group">
               <span class="control-label"><label for="newpassword">预约日期：</label></span>
               <div class="controls">
-                 <input size="16" type="text" name="college" value="<%=music.geteDate() %>" readonly>        
+                 <input size="16" type="text" name="edate" value="<%=music.geteDate() %>" readonly>        
               </div>
             </div>
             
              <div class="control-group">
               <span class="control-label"><label for="newpassword">预约时间段：</label></span>
               <div class="controls">
-                 <input size="16" type="text" name="aspect" value="<%=music.geteTime() %>" readonly>        
+                 <input size="16" type="text" name="etime" value="<%=music.geteTime() %>" readonly>        
               </div>
             </div>
            
@@ -100,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="control-group">
               <span class="control-label"><label for="newpassword">症状：</label></span>
               <div class="controls">
-                 <input size="16" type="text" name="eTeacher" value="<%=music.getSymptom() %>" readonly>        
+                 <input size="16" type="text" name="symptom" value="<%=music.getSymptom() %>" readonly>        
               </div>
             </div>
             

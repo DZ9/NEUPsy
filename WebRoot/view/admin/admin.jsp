@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li class=""><a href="#addTeacher" data-toggle="tab">添加咨询师</a></li>
         <li class=""><a href="#teacher" data-toggle="tab">编辑咨询师</a></li>
         <li class=""><a href="#export" data-toggle="tab">导出咨询预约</a></li>
-        <li class="pull-right"><a href="http://202.107.127.116:8084/admin/logout">退出系统</a></li>
+        <li class="pull-right"><a href="logout.jsp">退出系统</a></li>
       </ul>
       <div class="tab-content">
         <div id="appointment" class="tab-pane active">
@@ -99,8 +99,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <th width="50">姓名</th>
                 <th width="50">电话</th>
                 <th width="70">预约时间</th>
-                <th width="60">预约咨询师</th>
-                <th width="60">咨询咨询师</th>
+                <th width="70">预约咨询师</th>
+                <th width="70">咨询咨询师</th>
                 <th width="100">咨询时间</th>
                 <th width="50">已安排</th>
                 <th width="70">登记表</th>
@@ -232,6 +232,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              		<input name="eTime" style="display:none;"  type="text" value="<%=music.geteTime()%>">
 	              		<input name="symptom" style="display:none;" type="text" value="<%=music.getSymptom()%>">
 	              		<input name="rDate" style="display:none;" type="text" value="<%=music.getrDate()%>">
+		               	
 		                <button type="submit">导出</button>
 	                </form>	
 	                
@@ -242,6 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              		<input name="phone" style="display:none;" type="text" value="<%=music.getPhone()%>">
 	              		<input name="eTime" style="display:none;"  type="text" value="<%=music.geteTime()%>">
 	              		<input name="symptom" style="display:none;" type="text" value="<%=music.getSymptom()%>">
+		                <input name="rDate" style="display:none;" type="text" value="<%=music.getrDate()%>">
 		                <button type="submit">编辑</button>
 	                </form>	
 	                </td>

@@ -66,12 +66,12 @@ public class AddTeacher extends HttpServlet {
 					request.getRequestDispatcher("/view/admin/adminLogin.jsp");
 			view.forward(request, response);
 		}else {
-			String name = request.getParameter("name");
+			String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8");
 System.out.println("teacher name:"+name);
-			String newnickname = request.getParameter("nickname");
+			String newnickname = new String(request.getParameter("nickname").getBytes("ISO-8859-1"),"utf-8");
 			String password = request.getParameter("password");
 			String email = request.getParameter("email");
-			String description = request.getParameter("description");
+			String description = new String(request.getParameter("description").getBytes("ISO-8859-1"),"utf-8");
 			String authority = request.getParameter("authority");
 			
 			ITeacherDAO teacherDAO = new TeacherDAO();

@@ -1,6 +1,8 @@
 package com.idoxie.control;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -70,6 +72,7 @@ public class EditMusic extends HttpServlet {
 			String phone = new String(request.getParameter("phone").getBytes("ISO-8859-1"),"utf-8");
 			String eTime = new String(request.getParameter("eTime").getBytes("ISO-8859-1"),"utf-8");
 			String symptom = new String(request.getParameter("symptom").getBytes("ISO-8859-1"),"utf-8");
+			String rDate = new String(request.getParameter("rDate").getBytes("ISO-8859-1"),"utf-8");
 			
 			Music music = new Music();
 			music.setStuNum(Integer.parseInt(stuNum));
@@ -77,11 +80,20 @@ public class EditMusic extends HttpServlet {
 			music.setPhone(phone);
 			music.seteTime(eTime);
 			music.setSymptom(symptom);
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				music.setrDate(sdf1.parse(rDate));
+				request.setAttribute("music", music);
+				RequestDispatcher view =  
+						request.getRequestDispatcher("/view/admin/editMusic.jsp");
+				view.forward(request, response);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-			request.setAttribute("music", music);
-			RequestDispatcher view =  
-					request.getRequestDispatcher("/view/admin/editMusic.jsp");
-			view.forward(request, response);
+			
+			
 		}
 	}
 

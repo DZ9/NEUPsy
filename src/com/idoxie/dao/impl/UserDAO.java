@@ -199,9 +199,9 @@ public class UserDAO implements IUserDAO{
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				if(rs.getString("name") != null) {
+				String name = rs.getString("name");
 				DB.close(ps);
 				DB.close(conn);
-				String name = rs.getString("name");
 				return name;
 				}
 			}
@@ -290,7 +290,7 @@ public class UserDAO implements IUserDAO{
 				student.setInterest(rs.getString("interest"));
 				student.setGrade(rs.getString("grade"));
 				student.setSex(rs.getString("sex"));
-				student.setSymptom(rs.getString("symptom"));
+//				student.setSymptom(rs.getString("symptom"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
