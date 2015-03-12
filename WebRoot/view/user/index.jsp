@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h2>东北大学心理咨询预约与档案管理系统</h2>
     <p class="d_right" id="d_phone"><strong>咨询预约电话：</strong><br>83681101(南湖校区)<br>18804009525（浑南校区）</p>
 	<p class="d_right" id="d_addr"><strong>咨询预约地址：</strong><br>活动中心307（南湖校区）<br>生命科学大楼B座413（浑南校区）</p>
-	<img id="psy" src="assert/img/psy.png"/><span id="psy_t">关注心理健康港湾<br>http://psy.neu.edu.cn/</span>
+	<a href="#"><img id="psy" src="assert/img/psy.png"/></a><span id="psy_t">关注心理健康港湾<br><a href="http://psy.neu.edu.cn/">http://psy.neu.edu.cn/</a></span>
 	<img id="xq" src="assert/img/xq.png"/><span id="xq_t">关注NEU心理港湾<br>《心晴》微信订阅号</span>
     <div class="box tabbable">
       <ul class="nav nav-tabs">
