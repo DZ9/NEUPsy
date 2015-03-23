@@ -120,6 +120,7 @@ public class TeacherDAO implements ITeacherDAO{
 			Label label50 = new Label(5,0,"接待人");
 			Label label60 = new Label(6,0,"咨询时间");
 			Label label70 = new Label(7,0,"咨询方向");
+			Label label80 = new Label(8,0,"学院");
 			
 			sheet.addCell(label00);
 			 sheet.addCell(label10);
@@ -129,7 +130,8 @@ public class TeacherDAO implements ITeacherDAO{
 			 sheet.addCell(label50);
 			 sheet.addCell(label60);
 			 sheet.addCell(label70);
-			
+			 sheet.addCell(label80);
+			 
 			ResultSet rs = ps.executeQuery();
 			int i = 1;
 			while(rs.next()) {
@@ -153,7 +155,7 @@ public class TeacherDAO implements ITeacherDAO{
 				 }
 				 
 				 Label label71 = new Label(7,i,userDAO.getAspectById(rs.getInt("aspect")));
-				 
+				 Label label81 = new Label(8,i,rs.getString("college"));
 				 sheet.addCell(label01);
 				 sheet.addCell(label11);
 				 sheet.addCell(label21);
@@ -161,6 +163,7 @@ public class TeacherDAO implements ITeacherDAO{
 				 sheet.addCell(label41);
 				 sheet.addCell(label51);
 				 sheet.addCell(label71);
+				 sheet.addCell(label81);
 				 i++;
 			}
 			 
@@ -331,6 +334,34 @@ public class TeacherDAO implements ITeacherDAO{
 		String sql = "select * from t_teacher";
 		PreparedStatement ps = DB.prepare(conn, sql);
 		ArrayList<Teacher> al = new ArrayList();
+		UserDAO userDAO = new UserDAO();
+		try {
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Teacher teacher = new Teacher();
+				teacher.setAuthority(userDAO.getAuthorityById(rs.getInt("authority")));
+				teacher.setName(rs.getString("name"));
+				teacher.setPassword(rs.getString("password"));
+				teacher.setDescription(rs.getString("description"));
+				teacher.setNickname(rs.getString("nickname"));
+				teacher.setEmail(rs.getString("email"));
+				al.add(teacher);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DB.close(ps);
+		DB.close(conn);
+		return al;
+	}
+	
+	public ArrayList<Teacher> listAllCouncilor() {
+		// TODO Auto-generated method stub
+		Connection conn = DB.createConn();
+		String sql = "select * from t_teacher where authority = 3";
+		PreparedStatement ps = DB.prepare(conn, sql);
+		ArrayList<Teacher> al = new ArrayList<Teacher>();
 		UserDAO userDAO = new UserDAO();
 		try {
 			ResultSet rs = ps.executeQuery();

@@ -72,11 +72,11 @@ public class ShowUserIndex extends HttpServlet {
 			view.forward(request, response);
 		}else {
 			IUserDAO userDAO = new UserDAO();
-			ITeacherDAO teacherDAO = new TeacherDAO();
+			TeacherDAO teacherDAO = new TeacherDAO();
 			ArrayList<Appointment> appointment =
 					userDAO.listAppointMentById(Integer.parseInt(stuNum));
 			ArrayList<Teacher> teacher = 
-					teacherDAO.listAllTeacher();
+					teacherDAO.listAllCouncilor();
 			ArrayList<Music> musics = userDAO.listMusicById(Integer.parseInt(stuNum));
 			
 			request.setAttribute("appointment", appointment);

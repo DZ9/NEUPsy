@@ -327,7 +327,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <div class="control-group">
               <span class="control-label"><label for="oldpassword">预约时间：</label></span>
-                  <div class="controls date form_datetime" data-date="2014-11-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                  <div class="controls date form_datetime" data-date="2015-04-01T00:00:00Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
                     <input size="16" type="text" name="eTime" readonly>
                     <span class="add-on"><i class="icon-remove"></i></span>
                     <span class="add-on"><i class="icon-th"></i></span>
@@ -355,7 +355,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
              <div class="control-group">
               <span class="control-label"><label for="oldpassword">咨询时间：</label></span>
-                  <div class="controls date form_datetime" data-date="2014-11-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                  <div class="controls date form_datetime" data-date="2015-04-01T00:00:00Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
                     <input size="16" type="text" name="aTime" readonly>
                     <span class="add-on"><i class="icon-remove"></i></span>
                     <span class="add-on"><i class="icon-th"></i></span>
@@ -500,7 +500,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<form action="servlet/ExportExcel" method="POST" class="form-horizontal">
             <div class="control-group">
               <span class="control-label"><label for="oldpassword">开始时间：</label></span>
-                  <div class="controls date form_datetime" data-date="2014-11-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                  <div class="controls date form_datetime" data-date="2015-04-01T00:00:00Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
                     <input size="16" type="text" value="" readonly name="beginDate">
                     <span class="add-on"><i class="icon-remove"></i></span>
                     <span class="add-on"><i class="icon-th"></i></span>
@@ -508,7 +508,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="control-group">
               <span class="control-label"><label for="oldpassword">结束时间：</label></span>
-                  <div class="controls date form_datetime" data-date="2014-11-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                  <div class="controls date form_datetime" data-date="2015-04-01T00:00:00Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
                     <input size="16" type="text" value="" readonly name="endDate">
                     <span class="add-on"><i class="icon-remove"></i></span>
                     <span class="add-on"><i class="icon-th"></i></span>

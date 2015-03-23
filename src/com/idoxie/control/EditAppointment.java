@@ -104,14 +104,13 @@ System.out.println(eTime);
 			appointment.seteTeacher(eTeacher);
 			appointment.setrDate(rDate);
 			if(!aTime.equals("null")) {
-				System.out.println("aTime:"+aTime);
 				String aTimeFormat = aTime.substring(0,16);
 				appointment.setaTime(sdf.parse(aTimeFormat));
 				
 			}
 			appointment.setaTeacher(aTeacher);
-			ITeacherDAO teacherDAO = new TeacherDAO();
-			ArrayList<Teacher> teachers = teacherDAO.listAllTeacher();
+			TeacherDAO teacherDAO = new TeacherDAO();
+			ArrayList<Teacher> teachers = teacherDAO.listAllCouncilor();
 			
 			
 			request.setAttribute("teachers", teachers);
