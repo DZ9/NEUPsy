@@ -82,7 +82,6 @@ public class AddAppointmentByAdmin extends HttpServlet {
 			String way = request.getParameter("way");
 			
 			
-			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date eTimeDate,aTimeDate;
 			

@@ -422,10 +422,10 @@ public class TeacherDAO implements ITeacherDAO{
 			ps.setInt(1, stuNum);
 			ps.setString(2, phone);
 			ps.setString(3, eTeacher);
-			ps.setDate(4, new java.sql.Date(eTime.getTime()));
+			ps.setTimestamp(4, new java.sql.Timestamp(eTime.getTime()));
 			ps.setInt(5, aspect);
 			ps.setString(6, aTeacher);
-			ps.setDate(7, new java.sql.Date(aTime.getTime()));
+			ps.setTimestamp(7, new java.sql.Timestamp(aTime.getTime()));
 			ps.setDate(8, new java.sql.Date(rDate.getTime()));
 			ps.setInt(9, way);
 			ps.setString(10, stuName);

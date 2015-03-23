@@ -1,28 +1,22 @@
 package com.idoxie.control;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.idoxie.dao.IUserDAO;
-import com.idoxie.dao.impl.UserDAO;
-import com.idoxie.model.Student;
-import com.idoxie.util.word.AdvisoryDocumentHandler;
+import com.idoxie.dao.impl.TeacherDAO;
 
-public class ExportAdvisory extends HttpServlet {
+public class DeleteTeacher extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public ExportAdvisory() {
+	public DeleteTeacher() {
 		super();
 	}
 
@@ -47,7 +41,7 @@ public class ExportAdvisory extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		doPost(request, response);
+		doPost(request,response);
 	}
 
 	/**
@@ -63,35 +57,12 @@ public class ExportAdvisory extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-		String nickname = (String) session.getAttribute("nickname");
-		if(nickname == null) {
-			RequestDispatcher view =  
-					request.getRequestDispatcher("/view/admin/adminLogin.jsp");
-			view.forward(request, response);
-		}else {
-			String stuNum =  new String(request.getParameter("stuNum").getBytes("ISO-8859-1"),"utf-8");
-			String rDate = request.getParameter("rDate");
-			String phone =  new String(request.getParameter("phone").getBytes("ISO-8859-1"),"utf-8");
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			IUserDAO  userDAO = new UserDAO();
-			Student stu = userDAO.getStudentByStuNum(Integer.parseInt(stuNum));
-			Date d = stu.getBirthday();
-			String birthday;
-			if(d != null) {
-				 birthday = sdf.format(d);
-			}
-			else {
-				 birthday = "";
-			}
-			AdvisoryDocumentHandler adh = new AdvisoryDocumentHandler();
-			adh.createDoc(stu.getName(), stu.getSex(), birthday, stu.getInterest(), phone, stu.getCollege(), 
-					stu.getGrade(), stuNum, stu.getNation(), stu.getHometown());
-			RequestDispatcher view =  
-					request.getRequestDispatcher("../"+stuNum+" "+" advisory.doc");
-			view.forward(request, response);
-			
-		}
+		String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8");
+		TeacherDAO t = new TeacherDAO();
+		t.deleteTeacher(name);
+		RequestDispatcher view =  
+				request.getRequestDispatcher("/view/admin/success.jsp");
+		view.forward(request, response);
 	}
 
 	/**

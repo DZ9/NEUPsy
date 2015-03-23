@@ -58,6 +58,10 @@ public class DocumentHandler {
 		            new OutputStreamWriter(  
 		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+rDate+".doc"),  
 		                "UTF-8"));  
+//			PrintWriter out = new PrintWriter(  
+//		            new OutputStreamWriter(  
+//		                new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+rDate+".doc"),  
+//		                "UTF-8"));  
 			t.process(dataMap, out);
 			out.flush();
 			out.close();

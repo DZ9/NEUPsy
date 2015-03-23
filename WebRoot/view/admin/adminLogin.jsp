@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>招生报名系统管理后台</title>
+    <title>东北大学心理咨询预约与档案管理系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </form>
     <div class="copyright center">
-      <p>©  东北大学继续教育学院</p>
+      <p>©  东北大学学生指导服务中心  心理健康教育中心</p>
     </div>
   </body>
 </html>

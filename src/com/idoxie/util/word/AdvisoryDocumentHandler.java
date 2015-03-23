@@ -41,7 +41,7 @@ public class AdvisoryDocumentHandler {
 		try {
 			//test.ftl为要装载的模板
 			System.out.println(1);
-			t = configuration.getTemplate("test4.ftl","utf-8");
+			t = configuration.getTemplate("test6.ftl","utf-8");
 			System.out.println(2);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -54,6 +54,10 @@ public class AdvisoryDocumentHandler {
 //			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
 //			PrintWriter out = new PrintWriter(new BufferedWriter(
 //		            new FileWriter("D:/apache-tomcat-7.0.42/webapps/NEUPsy/"+stuNum+" "+rDate+".doc")));
+//			PrintWriter out = new PrintWriter(  
+//            new OutputStreamWriter(  
+//            new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+" advisory.doc"),  
+//            "UTF-8"));
 			PrintWriter out = new PrintWriter(  
 		            new OutputStreamWriter(  
 		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+" advisory.doc"),  
