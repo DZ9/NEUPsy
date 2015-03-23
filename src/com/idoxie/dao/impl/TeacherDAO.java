@@ -493,6 +493,7 @@ public class TeacherDAO implements ITeacherDAO{
 				appointment.setStuName(rs.getString("stuName"));
 				appointment.setStuNum(rs.getInt("stuNum"));
 				appointment.setStuPhone(rs.getString("stuPhone"));
+				System.out.println(userDAO.getWayById(rs.getInt("way")));
 				appointment.setWay(userDAO.getWayById(rs.getInt("way")));
 				
 				DB.close(ps);

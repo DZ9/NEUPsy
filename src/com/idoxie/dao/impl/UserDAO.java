@@ -81,8 +81,10 @@ public class UserDAO implements IUserDAO{
 		// TODO Auto-generated method stub
 		Connection conn = DB.createConn();
 		String sql = "insert into t_appointment(stuNum,stuPhone,eTeacher,eTime,aspect,rDate," +
-				"checked,stuName,college) values(?, ?, ?, ?, ?, ?, false,?,?)";
+				"checked,stuName,college,way) values(?, ?, ?, ?, ?, ?, false,?,?,2)";
 		PreparedStatement ps = DB.prepare(conn, sql);
+		
+		
 		
 		try {
 			ps.setInt(1, stuNum);
@@ -251,9 +253,9 @@ public class UserDAO implements IUserDAO{
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				if(rs.getString("way") != null) {
+					String way = rs.getString("way");
 					DB.close(ps);
 					DB.close(conn);
-					String way = rs.getString("way");
 					return way;
 				}
 					

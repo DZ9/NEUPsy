@@ -56,7 +56,7 @@ public class MusicDocumentHandler {
 //		            new FileWriter("D:/apache-tomcat-7.0.42/webapps/NEUPsy/"+stuNum+" "+rDate+".doc")));
 			PrintWriter out = new PrintWriter(  
 		            new OutputStreamWriter(  
-		                new FileOutputStream("D:/apache-tomcat-7.0.42/webapps/NEUPsy/"+stuNum+" "+rDate+" music.doc"),  
+		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+rDate+" music.doc"),  
 		                "UTF-8"));  
 			t.process(dataMap, out);
 			out.flush();
