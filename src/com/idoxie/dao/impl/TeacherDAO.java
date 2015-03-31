@@ -109,7 +109,9 @@ public class TeacherDAO implements ITeacherDAO{
 		try {
 			ps.setDate(1, new java.sql.Date(beginDate.getTime()));
 			ps.setDate(2, new java.sql.Date(endDate.getTime()));
-			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
+//			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
+			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"a.xls"));
+
 			// 生成名为“第一页”的工作表，参数0表示这是第一页
             WritableSheet sheet = book.createSheet("第一页", 0);
             Label label00 = new Label(0,0,"学号");
@@ -121,7 +123,7 @@ public class TeacherDAO implements ITeacherDAO{
 			Label label60 = new Label(6,0,"咨询时间");
 			Label label70 = new Label(7,0,"咨询方向");
 			Label label80 = new Label(8,0,"学院");
-			
+			Label label90 = new Label(9,0,"年级");
 			sheet.addCell(label00);
 			 sheet.addCell(label10);
 			 sheet.addCell(label20);
@@ -131,6 +133,7 @@ public class TeacherDAO implements ITeacherDAO{
 			 sheet.addCell(label60);
 			 sheet.addCell(label70);
 			 sheet.addCell(label80);
+			 sheet.addCell(label90);
 			 
 			ResultSet rs = ps.executeQuery();
 			int i = 1;
@@ -156,6 +159,7 @@ public class TeacherDAO implements ITeacherDAO{
 				 
 				 Label label71 = new Label(7,i,userDAO.getAspectById(rs.getInt("aspect")));
 				 Label label81 = new Label(8,i,rs.getString("college"));
+				 Label label91 = new Label(9,i,student.getGrade()); 
 				 sheet.addCell(label01);
 				 sheet.addCell(label11);
 				 sheet.addCell(label21);
@@ -164,6 +168,7 @@ public class TeacherDAO implements ITeacherDAO{
 				 sheet.addCell(label51);
 				 sheet.addCell(label71);
 				 sheet.addCell(label81);
+				 sheet.addCell(label91);
 				 i++;
 			}
 			 
