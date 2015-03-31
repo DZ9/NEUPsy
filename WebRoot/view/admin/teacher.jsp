@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="box tabbable">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#appointment" data-toggle="tab">我的咨询预约</a></li>
-        <li class="pull-right"><a href="http://202.107.127.116:8084/admin/logout">退出系统</a></li>
+        <li class="pull-right"><a href="logout.jsp">退出系统</a></li>
       </ul>
       <div class="tab-content">
         <div id="appointment" class="tab-pane active">
