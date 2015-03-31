@@ -344,7 +344,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		while(tit2.hasNext()) {
                 		Teacher teacher = (Teacher)tit2.next();
            			%>
-           				<option><%=teacher.getName()%></option>
+           				<option value="<%=teacher.getNickname()%>"><%=teacher.getName()%></option>
            			<%
                 		}
                 	%>
@@ -370,7 +370,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		while(tit3.hasNext()) {
                 		Teacher teacher = (Teacher)tit3.next();
            			%>
-           				<option><%=teacher.getName()%></option>
+           				<option value="<%=teacher.getNickname()%>"><%=teacher.getName()%></option>
            			<%
                 		}
                 	%>

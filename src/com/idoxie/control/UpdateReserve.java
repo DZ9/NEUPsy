@@ -82,11 +82,12 @@ public class UpdateReserve extends HttpServlet {
 				Date rDate = sdf1.parse(rDateString);
 				Date aTime = sdf2.parse(aTimeString);
 				ITeacherDAO teacherDAO = new TeacherDAO();
-				
+
 				teacherDAO.updateReserveByAdmin(rDate, Integer.parseInt(stuNum), aTime, aTeacher);
 				String email = teacherDAO.getEmailByTeacherName(aTeacher);
 				UserDAO userDAO = new UserDAO();
 				userDAO.sendMail(Integer.parseInt(stuNum), email);
+				
 				RequestDispatcher view =  
 						request.getRequestDispatcher("/view/admin/success.jsp");
 				view.forward(request, response);

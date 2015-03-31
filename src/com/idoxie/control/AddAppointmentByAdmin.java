@@ -73,14 +73,12 @@ public class AddAppointmentByAdmin extends HttpServlet {
 			String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8");
 			String phone = request.getParameter("phone");
 			String college = new String(request.getParameter("college").getBytes("ISO-8859-1"),"utf-8");
-					
 			String aspect = request.getParameter("aspect");
 			String eTime = request.getParameter("eTime");
 			String eTeacher = new String(request.getParameter("eTeacher").getBytes("ISO-8859-1"),"utf-8");
 			String aTime = request.getParameter("aTime");
 			String aTeacher = new String(request.getParameter("aTeacher").getBytes("ISO-8859-1"),"utf-8");
 			String way = request.getParameter("way");
-			
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date eTimeDate,aTimeDate;
