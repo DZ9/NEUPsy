@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML>
 <html>
   <head>
-    <base href="<%=basePath%>">
+    <base href="<%=basePath%>"/>
     
     <title>东北大学心理咨询预约与档案管理系统</title>
     
@@ -133,7 +133,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			              		<input name="aspect" style="display:none;" type="text" value="<%=appointment.getAspect()%>">
 			              		<input name="aTime" style="display:none;" type="text" value="<%=appointment.getaTime()%>">
 			              		<input name="eTime" style="display:none;" type="text" value="<%=eTimeString %>">
-		                		<input name="rDate" style="display:none;" type="text" value="<%=aTimeString%>">
+		                		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
+		                		<input name="content" style="display:none;" type="text" value="<%=appointment.getContent()%>">
+		                		<input name="suggestion" style="display:none;" type="text" value="<%=appointment.getSuggestion()%>">
 		                		<button type="submit" class="btn">编辑</button>
 		                	</form>
 		               		
@@ -163,6 +165,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			              		<input name="aTime" style="display:none;" type="text" value="<%=appointment.getaTime()%>">
 			              		<input name="eTime" style="display:none;" type="text" value="<%=eTimeString%>">
 			              		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
+		                		<input name="content" style="display:none;" type="text" value="<%=appointment.getContent()%>">
+		                		<input name="suggestion" style="display:none;" type="text" value="<%=appointment.getSuggestion()%>">
 		                		<button type="submit" class="btn">编辑</button>
 		                	</form>
 						</td>

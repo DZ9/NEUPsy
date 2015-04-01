@@ -149,9 +149,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="add-on"><i class="icon-th"></i></span>
                   </div>
               </div>
-            
+            <!-- 
             <%
-            	if(!appointment.getaTeacher().equals("null")) {
+            	//if(!appointment.getaTeacher().equals("null")) {
             %>
             		 <div class="control-group">
                      <span class="control-label"><label for="newpassword">咨询师：</label></span>
@@ -160,9 +160,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      </div>
                    </div>
             <%
-            	}else {
+            	//}else {
             		
             %>
+             -->
             		 <div class="control-group">
                      <span class="control-label"><label for="newpassword">咨询师：</label></span>
                      <div class="controls">
@@ -171,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	while(it.hasNext()) {
             		Teacher t = (Teacher)it.next();
             		%>	
-            			<option><%=t.getName() %></option>
+            			<option value="<%=t.getNickname()%>"><%=t.getName() %></option>
             		<%	
             	}
             %>          		
@@ -179,9 +180,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      </div>
                    </div>
             <%		
-            	}
+            	//}
             %>
-           
+           <div class="control-group">
+              <span class="control-label"><label for="newpassword">咨询内容：</label></span>
+              <%
+              	if(!appointment.getContent().equals("null")) {
+              	
+              %>
+              		<div class="controls">
+                 		<textarea size="16" type="text" name="content" ><%=appointment.getContent()%></textarea>    
+              		</div>
+              	<%
+              	              	}else {
+              	              	
+               %>
+               		<div class="controls">
+                 		<textarea size="16" type="text" name="content" ></textarea>        
+              		</div>
+               <%
+              	 }
+                %>
+            </div>
+            <div class="control-group">
+              <span class="control-label"><label for="newpassword">咨询建议：</label></span>
+              <%
+              	if(!appointment.getSuggestion().equals("null")) {
+              	
+              %>
+             
+              		<div class="controls">
+                 		<textarea size="16" type="text" name="suggestion" ><%=appointment.getSuggestion()%></textarea>           
+              		</div>
+              		
+              	<%
+              	 }else {
+              	              	
+               %>
+               		<div class="controls">
+                 		<textarea size="16" type="text" name="suggestion" ></textarea>      
+              		</div>
+               <%
+              	 }
+                %>
+             
+            </div>
              <div class="form-actions">
               <button type="submit" class="btn">确定</button>
             </div>

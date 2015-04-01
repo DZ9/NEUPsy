@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div style="opacity: 1; position: relative; margin: auto; top: 134.9px;" id="login" class="container">
     <form method="POST" class="box form-horizontal" action="servlet/AdminLogin">
       <fieldset>
-        <legend style="font-size:18px; font-family:Microsoft YaHei">招生报名系统管理后台</legend>
+        <legend style="font-size:18px; font-family:Microsoft YaHei">东北大学心理咨询预约与档案管理系统</legend>
         
         <div class="control-group">
           <span class="control-label">账号</span>

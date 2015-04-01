@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.idoxie.dao.IUserDAO;
+import com.idoxie.dao.impl.TeacherDAO;
 import com.idoxie.dao.impl.UserDAO;
+import com.idoxie.model.Appointment;
 import com.idoxie.model.Student;
 import com.idoxie.util.word.AdvisoryDocumentHandler;
 
@@ -72,6 +74,8 @@ public class ExportAdvisory extends HttpServlet {
 		}else {
 			String stuNum =  new String(request.getParameter("stuNum").getBytes("ISO-8859-1"),"utf-8");
 			String rDate = request.getParameter("rDate");
+			TeacherDAO teacherDAO = new TeacherDAO();
+			
 			String phone =  new String(request.getParameter("phone").getBytes("ISO-8859-1"),"utf-8");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			IUserDAO  userDAO = new UserDAO();
@@ -84,12 +88,23 @@ public class ExportAdvisory extends HttpServlet {
 			else {
 				 birthday = "";
 			}
-			AdvisoryDocumentHandler adh = new AdvisoryDocumentHandler();
-			adh.createDoc(stu.getName(), stu.getSex(), birthday, stu.getInterest(), phone, stu.getCollege(), 
-					stu.getGrade(), stuNum, stu.getNation(), stu.getHometown());
-			RequestDispatcher view =  
-					request.getRequestDispatcher("../"+stuNum+" "+" advisory.doc");
-			view.forward(request, response);
+			Date date;
+			try {
+				date = sdf.parse(rDate);
+				Appointment app =  teacherDAO.getAppointment(date, Integer.parseInt(stuNum));
+				
+				System.out.println(app.getSuggestion());
+				AdvisoryDocumentHandler adh = new AdvisoryDocumentHandler();
+				adh.createDoc(stu.getName(), stu.getSex(), birthday, stu.getInterest(), phone, stu.getCollege(), 
+						stu.getGrade(), stuNum, stu.getNation(), stu.getHometown(),app.getContent(),app.getSuggestion());
+				RequestDispatcher view =  
+						request.getRequestDispatcher("../"+stuNum+" "+" advisory.doc");
+				view.forward(request, response);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 		}
 	}

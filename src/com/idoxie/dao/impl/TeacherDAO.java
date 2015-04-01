@@ -259,6 +259,8 @@ public class TeacherDAO implements ITeacherDAO{
 				appointment.setrDate(rs.getDate("rDate"));
 				appointment.setStuName(rs.getString("stuName"));
 				appointment.setCollege(rs.getString("college"));
+				appointment.setContent(rs.getString("content"));
+				appointment.setSuggestion(rs.getString("suggestion"));
 				if(appointment.isChecked() == true) {
 					appointment.setaTeacher(rs.getString("aTeacher"));
 					appointment.setaTime(rs.getTimestamp("aTime"));
@@ -309,6 +311,8 @@ public class TeacherDAO implements ITeacherDAO{
 				appointment.setrDate(rs.getDate("rDate"));
 				appointment.setStuName(rs.getString("stuName"));
 				appointment.setCollege(rs.getString("college"));
+				appointment.setSuggestion(rs.getString("suggestion"));
+				appointment.setContent(rs.getString("content"));
 				if(appointment.isChecked() == true) {
 					appointment.setaTeacher(rs.getString("aTeacher"));
 					appointment.setaTime(rs.getTimestamp("aTime"));
@@ -529,7 +533,8 @@ public class TeacherDAO implements ITeacherDAO{
 				appointment.setStuName(rs.getString("stuName"));
 				appointment.setStuNum(rs.getInt("stuNum"));
 				appointment.setStuPhone(rs.getString("stuPhone"));
-				System.out.println(userDAO.getWayById(rs.getInt("way")));
+				appointment.setContent(rs.getString("content"));
+				appointment.setSuggestion(rs.getString("suggestion"));
 				appointment.setWay(userDAO.getWayById(rs.getInt("way")));
 				
 				DB.close(ps);
@@ -548,18 +553,22 @@ public class TeacherDAO implements ITeacherDAO{
 
 	@Override
 	public boolean updateReserveByAdmin(Date rDate, int stuNum, Date aTime,
-			String aTeacher) {
+			String aTeacher,String content,String suggestion) {
 		// TODO Auto-generated method stub
 		Connection conn = DB.createConn();
 		String sql = "update t_appointment set aTime = ?, " +
-				"aTeacher = ?, checked = true where stuNum = ? and rDate = ?";
-		
+				"aTeacher = ?, content = ?, suggestion = ?, checked = true where stuNum = ? and rDate = ?";
+System.out.println(content);
+System.out.println(suggestion);
+System.out.println(rDate);
 		PreparedStatement ps = DB.prepare(conn, sql);
 		try {
 			ps.setTimestamp(1, new java.sql.Timestamp(aTime.getTime()));
 			ps.setString(2, aTeacher);
-			ps.setInt(3, stuNum);
-			ps.setDate(4, new java.sql.Date(rDate.getTime()));
+			ps.setString(3, content);
+			ps.setString(4, suggestion);
+			ps.setInt(5, stuNum);
+			ps.setDate(6, new java.sql.Date(rDate.getTime()));
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -585,7 +594,7 @@ public class TeacherDAO implements ITeacherDAO{
 	public String getEmailByTeacherName(String name) {
 		// TODO Auto-generated method stub
 		Connection conn = DB.createConn();
-		String sql = "select email from t_teacher where name = ?";
+		String sql = "select email from t_teacher where nickname = ?";
 		PreparedStatement ps = DB.prepare(conn, sql);
 		
 		try {

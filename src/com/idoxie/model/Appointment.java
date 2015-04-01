@@ -18,7 +18,21 @@ public class Appointment {
 	private boolean checked;
 	private String stuName;
 	private String college;
+	private String content;
+	private String suggestion;
 	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getSuggestion() {
+		return suggestion;
+	}
+	public void setSuggestion(String suggestion) {
+		this.suggestion = suggestion;
+	}
 	public String getCollege() {
 		return college;
 	}

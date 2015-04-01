@@ -74,20 +74,21 @@ public class UpdateReserve extends HttpServlet {
 			String rDateString = new String(request.getParameter("rDate").getBytes("ISO-8859-1"),"utf-8");
 			String aTimeString = new String(request.getParameter("aTime").getBytes("ISO-8859-1"),"utf-8");
 			String aTeacher = new String(request.getParameter("aTeacher").getBytes("ISO-8859-1"),"utf-8");
-			
+			String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"utf-8");
+			String suggestion = new String(request.getParameter("suggestion").getBytes("ISO-8859-1"),"utf-8");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			
+System.out.println(1);
 			try {
 				Date rDate = sdf1.parse(rDateString);
 				Date aTime = sdf2.parse(aTimeString);
 				ITeacherDAO teacherDAO = new TeacherDAO();
 
-				teacherDAO.updateReserveByAdmin(rDate, Integer.parseInt(stuNum), aTime, aTeacher);
+				teacherDAO.updateReserveByAdmin(rDate, Integer.parseInt(stuNum), aTime, aTeacher,content,suggestion);
 				String email = teacherDAO.getEmailByTeacherName(aTeacher);
 				UserDAO userDAO = new UserDAO();
 				userDAO.sendMail(Integer.parseInt(stuNum), email);
-				
+System.out.println(2);					
 				RequestDispatcher view =  
 						request.getRequestDispatcher("/view/admin/success.jsp");
 				view.forward(request, response);

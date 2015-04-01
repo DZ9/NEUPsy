@@ -27,7 +27,7 @@ public interface ITeacherDAO {
 			Date eTime,String eTeacher, Date aTime, String aTeacher, Date rDate,int way
 			,String stuName);
 	public Appointment getAppointment(Date rDate, int stuNum);
-	public boolean updateReserveByAdmin(Date rDate,int stuNum,Date aTime,String aTeacher);
+	public boolean updateReserveByAdmin(Date rDate,int stuNum,Date aTime,String aTeacher,String content,String suggestion);
 	public boolean updateReserveByTeacher(Date rDate,int stuNum,String receiver,String remark,String result);
 	public String getEmailByTeacherName(String name);
 	public ArrayList<Music> listMusic();

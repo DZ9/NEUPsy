@@ -82,7 +82,8 @@ public class EditAppointment extends HttpServlet {
 		String aTime = new String(request.getParameter("aTime").getBytes("ISO-8859-1"),"utf-8");
 		String aTeacher = new String(request.getParameter("aTeacher").getBytes("ISO-8859-1"),"utf-8");
 		String rDateString = new String(request.getParameter("rDate").getBytes("ISO-8859-1"),"utf-8");
-System.out.println(eTime);
+		String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"utf-8");
+		String suggestion = new String(request.getParameter("suggestion").getBytes("ISO-8859-1"),"utf-8");
 //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //
 //Date date = sdf.parse("2008-08-08 12:10:12");
@@ -103,6 +104,8 @@ System.out.println(eTime);
 			appointment.seteTime(eDate);
 			appointment.seteTeacher(eTeacher);
 			appointment.setrDate(rDate);
+			appointment.setContent(content);
+			appointment.setSuggestion(suggestion);
 			if(!aTime.equals("null")) {
 				String aTimeFormat = aTime.substring(0,16);
 				appointment.setaTime(sdf.parse(aTimeFormat));

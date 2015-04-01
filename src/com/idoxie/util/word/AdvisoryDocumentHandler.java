@@ -25,12 +25,12 @@ public class AdvisoryDocumentHandler {
 
 	public void createDoc(String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown) {
+			 String hometown,String content,String suggestion) {
 		//要填入模本的数据文件
 		Map<String,Object> dataMap=new HashMap<String,Object>();
 		getData( dataMap,name, sex, birthday,
 				  interest,  phone,  college,  grade,  stuNum, nation,
-				  hometown);
+				  hometown,content,suggestion);
 //		getData(dataMap, name, stuNum, college,
 //				 telephone, reserveTime, way, aspect, reTeacher, aTime,
 //				 receiver, remark, result, aTeacher);
@@ -54,14 +54,14 @@ public class AdvisoryDocumentHandler {
 //			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
 //			PrintWriter out = new PrintWriter(new BufferedWriter(
 //		            new FileWriter("D:/apache-tomcat-7.0.42/webapps/NEUPsy/"+stuNum+" "+rDate+".doc")));
-//			PrintWriter out = new PrintWriter(  
-//            new OutputStreamWriter(  
-//            new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+" advisory.doc"),  
-//            "UTF-8"));
 			PrintWriter out = new PrintWriter(  
-		            new OutputStreamWriter(  
-		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+" advisory.doc"),  
-		                "UTF-8"));  
+            new OutputStreamWriter(  
+            new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+" advisory.doc"),  
+            "UTF-8"));
+//			PrintWriter out = new PrintWriter(  
+//		            new OutputStreamWriter(  
+//		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+" advisory.doc"),  
+//		                "UTF-8"));  
 			t.process(dataMap, out);
 			out.flush();
 			out.close();
@@ -85,11 +85,10 @@ public class AdvisoryDocumentHandler {
 	 */
 	 private void getData(Map<String,Object> dataMap, String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown)
+			 String hometown,String content,String suggestion)
 	  {
 		 
-		 
-		  IUserDAO userDAO = new UserDAO();
+		 System.out.println(suggestion);
 		  setValue(dataMap, "name", name);
 		  setValue(dataMap, "sex", sex);
 		  setValue(dataMap, "birthday", birthday);
@@ -100,6 +99,8 @@ public class AdvisoryDocumentHandler {
 		  setValue(dataMap, "stuNum", stuNum);
 		  setValue(dataMap, "nation", nation);
 		  setValue(dataMap, "hometown", hometown);
+		  setValue(dataMap,"content",content);
+		  setValue(dataMap,"suggestion",suggestion);
 		  
 	  }
 		 
