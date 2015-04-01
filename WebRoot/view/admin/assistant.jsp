@@ -144,6 +144,8 @@ Iterator tit3 = teachers.iterator();
 			              		<input name="aTime" style="display:none;" type="text" value="<%=appointment.getaTime()%>">
 			              		<input name="eTime" style="display:none;" type="text" value="<%=appointment.geteTime()%>">
 		                		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
+		                		<input name="content" style="display:none;" type="text" value="<%=appointment.getContent()%>">
+		                		<input name="suggestion" style="display:none;" type="text" value="<%=appointment.getSuggestion()%>">
 		                		<button type="submit" class="btn">编辑</button>
 		                	</form>
 		               		
@@ -173,6 +175,8 @@ Iterator tit3 = teachers.iterator();
 			              		<input name="aTime" style="display:none;" type="text" value="<%=appointment.getaTime()%>">
 			              		<input name="eTime" style="display:none;" type="text" value="<%=appointment.geteTime()%>">
 			              		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
+		                		<input name="content" style="display:none;" type="text" value="<%=appointment.getContent()%>">
+		                		<input name="suggestion" style="display:none;" type="text" value="<%=appointment.getSuggestion()%>">
 		                		<button type="submit" class="btn">编辑</button>
 		                	</form>
 						</td>
