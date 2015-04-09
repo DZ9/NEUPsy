@@ -367,6 +367,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <table id="regtable" class="table table-bordered table-hover">
             <thead>
               <tr>
+              	<th width="200">预约日期</th>
                 <th width="200">预约时间</th>
                 <th width="100">症状</th>
               </tr>
@@ -376,6 +377,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               			Music music = (Music)mit.next();
               			%>	
               			<tr>
+              			<td><%=music.geteDate() %></td>
               			<td><%=music.geteTime() %></td>
                 		<td><%=music.getSymptom() %></td>
                 		</tr>
