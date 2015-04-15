@@ -70,6 +70,7 @@ public class UserRegister extends HttpServlet {
 		String nation = new String(request.getParameter("nation").getBytes("ISO-8859-1"),"utf-8");
 		String hometown = new String(request.getParameter("hometown").getBytes("ISO-8859-1"),"utf-8");
 		String grade = new String(request.getParameter("grade").getBytes("ISO-8859-1"),"utf-8");
+		String major = new String(request.getParameter("major").getBytes("ISO-8859-1"),"utf-8");
 		IUserDAO userDAO = new UserDAO();
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -86,7 +87,7 @@ public class UserRegister extends HttpServlet {
 				view.forward(request, response);
 			}else {
 			
-				userDAO.addUser(Integer.parseInt(stuNum), stuName, password, college, d, nation, interest, hometown,Integer.parseInt(grade),sex);
+				userDAO.addUser(Integer.parseInt(stuNum), stuName, password, college, d, nation, interest, hometown,grade,sex,major);
 				HttpSession session = request.getSession();
 				session.setAttribute("stuNum", stuNum);
 				session.setMaxInactiveInterval(6000);

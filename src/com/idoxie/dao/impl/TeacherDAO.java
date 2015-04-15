@@ -91,7 +91,11 @@ public class TeacherDAO implements ITeacherDAO{
 		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String reserveTimeString=sdf.format(reserveTime);  
-		String aTimeString = sdf.format(aTime);
+		String aTimeString=null;
+		if(aTime!=null) {
+			aTimeString = sdf.format(aTime);
+		}
+		
 		doc.createDoc(name, stuNum, college,
 				 telephone, reserveTimeString, way, aspect, reTeacher, aTimeString,
 				 receiver, remark, result, aTeacher,rDate);

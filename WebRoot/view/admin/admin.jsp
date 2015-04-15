@@ -172,26 +172,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <td><%=appointment.geteTeacher() %></td>
 		                <td>未安排</td>
 		                <td>未安排</td>
-		                <td>否</td>
-		                <td> <button type="submit" class="btn">导出</button></td>
+		                <td>是</td>
 		                <td> 
-							<form action="servlet/EditAppointment" method="post">
+			                <form action="servlet/ExportWord" method="post">
+		                		<input name="stuNum" style="display:none;" type="text" value="<%=appointment.getStuNum()%>">
+			              		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">	
+		                		<button type="submit" class="btn">导出</button>
+	                		</form>
+		                </td>
+		                
+		                <td> 
+			                <form action="servlet/ExportAdvisory" method="post">
+		                		<input name="stuNum" style="display:none;" type="text" value="<%=appointment.getStuNum()%>">
+			              		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">	
+			              		<input name="phone" style="display:none;" type="text" value="<%=appointment.getStuPhone()%>">	
+		                		<button type="submit" class="btn">导出</button>
+	                		</form>
+		                </td>
+		               
+		                <td> 
+		                	<form action="servlet/EditAppointment" method="post">
 		                		<input name="stuNum" style="display:none;" type="text" value="<%=appointment.getStuNum()%>">
 		                		<input name="stuName" style="display:none;" type="text" value="<%=appointment.getStuName()%>">
 			              		<input name="phone" style="display:none;" type="text" value="<%=appointment.getStuPhone()%>">
-			              		<input name="college" style="display:none;" type="text" value="">
+			              		<input name="college" style="display:none;" type="text" value="<%=appointment.getCollege()%>">
 			              		<input name="eTeacher" style="display:none;"  type="text" value="<%=appointment.geteTeacher()%>">
 			              		<input name="aTeacher" style="display:none;" type="text" value="<%=appointment.getaTeacher()%>">
 			              		<input name="aspect" style="display:none;" type="text" value="<%=appointment.getAspect()%>">
 			              		<input name="aTime" style="display:none;" type="text" value="<%=appointment.getaTime()%>">
 			              		<input name="eTime" style="display:none;" type="text" value="<%=appointment.geteTime()%>">
-			              		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
+		                		<input name="rDate" style="display:none;" type="text" value="<%=appointment.getrDate()%>">
 		                		<input name="content" style="display:none;" type="text" value="<%=appointment.getContent()%>">
 		                		<input name="suggestion" style="display:none;" type="text" value="<%=appointment.getSuggestion()%>">
 		                		<button type="submit" class="btn">编辑</button>
 		                	</form>
-						</td>
-		             </tr>	
+		               		
+		                </td>
+		             </tr>				
               <%
               		}
               	}
@@ -208,6 +225,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               
                 <th width="30">姓名</th>
                 <th width="40">学号</th>
+                 <th width="40">学院</th>
                 <th width="40">电话</th>
                 <th width="40">症状</th>
                 <th width="40">预约日期</th>
@@ -224,6 +242,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              <tr>
 	              	<td><%=userDAO.getNameByStuNum(music.getStuNum()) %></td>
 	                <td><%=music.getStuNum() %></td>
+	                <td><%=userDAO.getStudentByStuNum(music.getStuNum()).getCollege() %></td>
 	              	<td><%=music.getPhone() %></td>
 	                <td><%=music.getSymptom() %></td>
 	                <td><%=music.geteDate() %> </td>

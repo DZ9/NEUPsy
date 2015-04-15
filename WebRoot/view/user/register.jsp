@@ -115,7 +115,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	</select>
     </div>
   </div>
-  
+  <div class="control-group">
+    <label class="control-label" for="baomingxuhao">专业*：</label>
+    <div class="controls">
+      <input id="major" name="major" type="text">
+    </div>
+  </div>
 
   <div class="control-group">
     <label class="control-label" for="baomingxuhao">密码*：</label>

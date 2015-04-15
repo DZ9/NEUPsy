@@ -47,11 +47,11 @@ public class UserDAO implements IUserDAO{
 	}
 
 	@Override
-	public boolean addUser(int stuNum, String name, String password,
-			String college, Date birthday, String nation, String interest, String hometown,int grade,String sex) {
+	public boolean addUser(int stuNum, String name, String password,String college, 
+			Date birthday, String nation, String interest, String hometown,String grade,String sex,String major) {
 		// TODO Auto-generated method stub
 		Connection conn = DB.createConn();
-		String sql = "insert into t_student values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into t_student values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 		PreparedStatement ps = DB.prepare(conn, sql);
 		
 		try {
@@ -63,8 +63,9 @@ public class UserDAO implements IUserDAO{
 			ps.setString(6, interest);
 			ps.setString(7, nation);
 			ps.setString(8, hometown);
-			ps.setInt(9, grade);
+			ps.setString(9, grade);
 			ps.setString(10, sex);
+			ps.setString(11, major);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -292,6 +293,7 @@ public class UserDAO implements IUserDAO{
 				student.setInterest(rs.getString("interest"));
 				student.setGrade(rs.getString("grade"));
 				student.setSex(rs.getString("sex"));
+				student.setMajor(rs.getString("major"));
 //				student.setSymptom(rs.getString("symptom"));
 			}
 		} catch (SQLException e) {

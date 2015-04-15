@@ -11,7 +11,7 @@ public interface IUserDAO {
 	boolean checkLogin(int stuNum, String password);
 	
 	boolean addUser(int stuNum, String name, String password,
-			String college, Date birthday, String nation, String interest, String hometown,int grade,String sex);
+			String college, Date birthday, String nation, String interest, String hometown,String grade,String sex,String major);
 	
 	boolean addAppointment(int stuNum, String phone, String eTeacher, Date eTime, int aspect
 			,Date rDate);

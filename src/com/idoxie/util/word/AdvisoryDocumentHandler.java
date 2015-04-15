@@ -25,12 +25,12 @@ public class AdvisoryDocumentHandler {
 
 	public void createDoc(String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown,String content,String suggestion,String aspect) {
+			 String hometown,String content,String suggestion,String aspect,String major) {
 		//要填入模本的数据文件
 		Map<String,Object> dataMap=new HashMap<String,Object>();
 		getData( dataMap,name, sex, birthday,
 				  interest,  phone,  college,  grade,  stuNum, nation,
-				  hometown,content,suggestion,aspect);
+				  hometown,content,suggestion,aspect,major);
 //		getData(dataMap, name, stuNum, college,
 //				 telephone, reserveTime, way, aspect, reTeacher, aTime,
 //				 receiver, remark, result, aTeacher);
@@ -85,7 +85,7 @@ public class AdvisoryDocumentHandler {
 	 */
 	 private void getData(Map<String,Object> dataMap, String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown,String content,String suggestion,String aspect)
+			 String hometown,String content,String suggestion,String aspect,String major)
 	  {
 		 
 		 System.out.println(suggestion);
@@ -101,7 +101,7 @@ public class AdvisoryDocumentHandler {
 		  setValue(dataMap, "hometown", hometown);
 		  setValue(dataMap,"content",content);
 		  setValue(dataMap,"suggestion",suggestion);
-		  setValue(dataMap,"major","test");
+		  setValue(dataMap,"major",major);
 		  switch(aspect) {
 		  case "情绪、情感":
 			  dataMap.put("emotion", "√");

@@ -14,6 +14,14 @@ public class Student {
 	private String sex;
 	private String grade;
 	private String symptom;
+	private String major;
+	
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
 	public String getSymptom() {
 		return symptom;
 	}
