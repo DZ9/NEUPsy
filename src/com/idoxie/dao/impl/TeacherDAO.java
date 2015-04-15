@@ -562,9 +562,7 @@ public class TeacherDAO implements ITeacherDAO{
 		Connection conn = DB.createConn();
 		String sql = "update t_appointment set aTime = ?, " +
 				"aTeacher = ?, content = ?, suggestion = ?, checked = true where stuNum = ? and rDate = ?";
-System.out.println(content);
-System.out.println(suggestion);
-System.out.println(rDate);
+
 		PreparedStatement ps = DB.prepare(conn, sql);
 		try {
 			ps.setTimestamp(1, new java.sql.Timestamp(aTime.getTime()));
@@ -718,32 +716,10 @@ System.out.println(rDate);
 			ResultSet rs = ps.executeQuery();
 			int i = 1;
 			while(rs.next()) {
-//				Label label01 = new Label(0,i,"222");
-//				 UserDAO userDAO = new UserDAO();
-//				 
-//				 Student student = userDAO.getStudentByStuNum(rs.getInt("stuNum"));
-////System.out.println(student.getName());
-//				 Label label11 = new Label(1,i,"222");
-//				 Label label21 = new Label(2,i,"222");
-//				 Label label31 = new Label(3,i,"222");
-//				 Label label41 = new Label(4,i,"222");
-//				 Label label51 = new Label(5,i,"222");
-//				 Label label61 = new Label(6,i,"222");
-//				 
-//				 sheet.addCell(label01);
-//				 sheet.addCell(label11);
-//				 sheet.addCell(label21);
-//				 sheet.addCell(label31);
-//				 sheet.addCell(label41);
-//				 sheet.addCell(label51);
-//				 sheet.addCell(label61);
-//				
-//				 i++;
 				 Label label01 = new Label(0,i,rs.getInt("stuNum")+"");
 				 UserDAO userDAO = new UserDAO();
 				 
 				 Student student = userDAO.getStudentByStuNum(rs.getInt("stuNum"));
-//System.out.println(student.getName());
 				 Label label11 = new Label(1,i,student.getName());
 				 Label label21 = new Label(2,i,rs.getString("phone"));
 				 Label label31 = new Label(3,i,rs.getString("eDate"));
