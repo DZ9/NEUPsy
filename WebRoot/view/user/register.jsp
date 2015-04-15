@@ -137,16 +137,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="controls">
     	<select  name="grade" id="grade">
     		<option>
-    			2011
+    			大一
     		</option>
     		<option>
-    			2012
+    			大二
     		</option>
     		<option>
-    			2013
+    			大三
     		</option>
     		<option>
-    			2014
+    			大四
+    		</option>
+    		<option>
+    			研一
+    		</option>
+    		<option>
+    			研二
+    		</option>
+    		<option>
+    			研三
+    		</option>
+    		<option>
+    			博一
+    		</option>
+    		<option>
+    			博二
+    		</option>
+    		<option>
+    			其他
     		</option>
     	</select>
      

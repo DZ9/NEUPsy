@@ -25,12 +25,12 @@ public class AdvisoryDocumentHandler {
 
 	public void createDoc(String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown,String content,String suggestion) {
+			 String hometown,String content,String suggestion,String aspect) {
 		//要填入模本的数据文件
 		Map<String,Object> dataMap=new HashMap<String,Object>();
 		getData( dataMap,name, sex, birthday,
 				  interest,  phone,  college,  grade,  stuNum, nation,
-				  hometown,content,suggestion);
+				  hometown,content,suggestion,aspect);
 //		getData(dataMap, name, stuNum, college,
 //				 telephone, reserveTime, way, aspect, reTeacher, aTime,
 //				 receiver, remark, result, aTeacher);
@@ -41,7 +41,7 @@ public class AdvisoryDocumentHandler {
 		try {
 			//test.ftl为要装载的模板
 			System.out.println(1);
-			t = configuration.getTemplate("test6.ftl","utf-8");
+			t = configuration.getTemplate("zxk.ftl","utf-8");
 			System.out.println(2);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -54,14 +54,14 @@ public class AdvisoryDocumentHandler {
 //			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
 //			PrintWriter out = new PrintWriter(new BufferedWriter(
 //		            new FileWriter("D:/apache-tomcat-7.0.42/webapps/NEUPsy/"+stuNum+" "+rDate+".doc")));
-//			PrintWriter out = new PrintWriter(  
-//            new OutputStreamWriter(  
-//            new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+" advisory.doc"),  
-//            "UTF-8"));
 			PrintWriter out = new PrintWriter(  
-		            new OutputStreamWriter(  
-		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+" advisory.doc"),  
-		                "UTF-8"));  
+            new OutputStreamWriter(  
+            new FileOutputStream("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+stuNum+" "+" advisory.doc"),  
+            "UTF-8"));
+//			PrintWriter out = new PrintWriter(  
+//		            new OutputStreamWriter(  
+//		                new FileOutputStream("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+stuNum+" "+" advisory.doc"),  
+//		                "UTF-8"));  
 			t.process(dataMap, out);
 			out.flush();
 			out.close();
@@ -85,7 +85,7 @@ public class AdvisoryDocumentHandler {
 	 */
 	 private void getData(Map<String,Object> dataMap, String name, String sex, String birthday,
 			 String interest, String phone, String college, String grade, String stuNum,String nation,
-			 String hometown,String content,String suggestion)
+			 String hometown,String content,String suggestion,String aspect)
 	  {
 		 
 		 System.out.println(suggestion);
@@ -101,6 +101,98 @@ public class AdvisoryDocumentHandler {
 		  setValue(dataMap, "hometown", hometown);
 		  setValue(dataMap,"content",content);
 		  setValue(dataMap,"suggestion",suggestion);
+		  setValue(dataMap,"major","test");
+		  switch(aspect) {
+		  case "情绪、情感":
+			  dataMap.put("emotion", "√");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");
+			  break;
+		  case "个性":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "√");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");	
+			  break;
+		  case "压力":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "√");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");
+			  break;
+		  case "神经质":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "√");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");
+			  break;
+		  case "人际关系":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "√");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");	
+			  break;
+		  case "学习、职业、生涯规划":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "√");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");	
+			  break;
+		  case "适应":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "√");
+			  dataMap.put("other", "□");	
+			  break;
+		  case "其他":
+			  dataMap.put("emotion", "□");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "√");
+			  break;
+		  default:
+			  dataMap.put("emotion", "√");
+			  dataMap.put("charecter", "□");
+			  dataMap.put("pressure", "□");
+			  dataMap.put("prissy", "□");
+			  dataMap.put("connection", "□");
+			  dataMap.put("study", "□");
+			  dataMap.put("adjustability", "□");
+			  dataMap.put("other", "□");
+		  }
 		  
 	  }
 		 

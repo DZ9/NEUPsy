@@ -96,7 +96,7 @@ public class ExportAdvisory extends HttpServlet {
 				System.out.println(app.getSuggestion());
 				AdvisoryDocumentHandler adh = new AdvisoryDocumentHandler();
 				adh.createDoc(stu.getName(), stu.getSex(), birthday, stu.getInterest(), phone, stu.getCollege(), 
-						stu.getGrade(), stuNum, stu.getNation(), stu.getHometown(),app.getContent(),app.getSuggestion());
+						stu.getGrade(), stuNum, stu.getNation(), stu.getHometown(),app.getContent(),app.getSuggestion(),app.getAspect());
 				RequestDispatcher view =  
 						request.getRequestDispatcher("../"+stuNum+" "+" advisory.doc");
 				view.forward(request, response);

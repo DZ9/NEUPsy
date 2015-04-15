@@ -109,8 +109,8 @@ public class TeacherDAO implements ITeacherDAO{
 		try {
 			ps.setDate(1, new java.sql.Date(beginDate.getTime()));
 			ps.setDate(2, new java.sql.Date(endDate.getTime()));
-//			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
-			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"a.xls"));
+			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
+//			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"a.xls"));
 
 			// 生成名为“第一页”的工作表，参数0表示这是第一页
             WritableSheet sheet = book.createSheet("第一页", 0);
