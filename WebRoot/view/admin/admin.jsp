@@ -88,6 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li class=""><a href="#addTeacher" data-toggle="tab">添加咨询师</a></li>
         <li class=""><a href="#teacher" data-toggle="tab">编辑咨询师</a></li>
         <li class=""><a href="#export" data-toggle="tab">导出咨询预约</a></li>
+        <li class=""><a href="#exportMusic" data-toggle="tab">导出音乐预约</a></li>
         <li class="pull-right"><a href="logout.jsp">退出系统</a></li>
       </ul>
       <div class="tab-content">
@@ -556,6 +557,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     forceParse: 0,
                     showMeridian: 1
                 });
+            </script>
+        </div>
+        
+        <div id="exportMusic" class="tab-pane">
+        	<form action="servlet/ExportMusicExcel" method="POST" class="form-horizontal">
+            <div class="control-group">
+              <span class="control-label"><label for="oldpassword">开始时间：</label></span>
+                  <div class="controls date form_date" data-date="2015-04-01" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
+                    <input size="16" type="text" value="" readonly name="beginDate">
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+            <div class="control-group">
+              <span class="control-label"><label for="oldpassword">结束时间：</label></span>
+                  <div class="controls date form_date" data-date="2015-04-01" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
+                    <input size="16" type="text" value="" readonly name="endDate">
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn">导出</button>
+            </div>
+            </form>
+            <script type="text/javascript" src="assert/js/jquery.js" charset="UTF-8"></script>
+			<script type="text/javascript" src="assert/js/bootstrap.js"></script>
+            <script type="text/javascript" src="assert/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+            <script type="text/javascript" src="assert/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+            <script type="text/javascript">
+                
+                $('.form_date').datetimepicker({
+					language:  'zh-CN',
+					weekStart: 1,
+					todayBtn:  1,
+					autoclose: 1,
+					todayHighlight: 1,
+					startView: 2,
+					minView: 2,
+					forceParse: 0
+				});
             </script>
         </div>
       </div>

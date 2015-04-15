@@ -113,8 +113,8 @@ public class TeacherDAO implements ITeacherDAO{
 		try {
 			ps.setDate(1, new java.sql.Date(beginDate.getTime()));
 			ps.setDate(2, new java.sql.Date(endDate.getTime()));
-			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
-//			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"a.xls"));
+//			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"a.xls"));
+			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"a.xls"));
 
 			// 生成名为“第一页”的工作表，参数0表示这是第一页
             WritableSheet sheet = book.createSheet("第一页", 0);
@@ -680,6 +680,97 @@ System.out.println(rDate);
 		}
 		DB.close(ps);
 		DB.close(conn);
+	}
+	
+	public boolean generateMusicExcelByDate(Date beginDate, Date endDate) {
+		// TODO Auto-generated method stub
+		Connection conn = DB.createConn();
+		String sql = "select * from t_music where rDate between ? and ?";
+		PreparedStatement ps = DB.prepare(conn, sql);
+		
+		try {
+			ps.setDate(1, new java.sql.Date(beginDate.getTime()));
+			ps.setDate(2, new java.sql.Date(endDate.getTime()));
+//			WritableWorkbook book = Workbook.createWorkbook(new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/NEUPsy/"+"b.xls"));
+			WritableWorkbook book = Workbook.createWorkbook(new File("F:/tomcat-7.0.57/webapps/NEUPsy-1.0.0/"+"b.xls"));
+
+			// 生成名为“第一页”的工作表，参数0表示这是第一页
+            WritableSheet sheet = book.createSheet("第一页", 0);
+            Label label00 = new Label(0,0,"学号");
+			Label label10 = new Label(1,0,"姓名");
+			Label label20 = new Label(2,0,"联系电话");
+			Label label30 = new Label(3,0,"预约日期");
+			Label label40 = new Label(4,0,"预约时间段");
+			Label label50 = new Label(5,0,"症状");
+			Label label60 = new Label(6,0,"放松方式");
+			
+			sheet.addCell(label00);
+			 sheet.addCell(label10);
+			 sheet.addCell(label20);
+			 sheet.addCell(label30);
+			 sheet.addCell(label40);
+			 sheet.addCell(label50);
+			 sheet.addCell(label60);
+			 
+			 
+			ResultSet rs = ps.executeQuery();
+			int i = 1;
+			while(rs.next()) {
+//				Label label01 = new Label(0,i,"222");
+//				 UserDAO userDAO = new UserDAO();
+//				 
+//				 Student student = userDAO.getStudentByStuNum(rs.getInt("stuNum"));
+////System.out.println(student.getName());
+//				 Label label11 = new Label(1,i,"222");
+//				 Label label21 = new Label(2,i,"222");
+//				 Label label31 = new Label(3,i,"222");
+//				 Label label41 = new Label(4,i,"222");
+//				 Label label51 = new Label(5,i,"222");
+//				 Label label61 = new Label(6,i,"222");
+//				 
+//				 sheet.addCell(label01);
+//				 sheet.addCell(label11);
+//				 sheet.addCell(label21);
+//				 sheet.addCell(label31);
+//				 sheet.addCell(label41);
+//				 sheet.addCell(label51);
+//				 sheet.addCell(label61);
+//				
+//				 i++;
+				 Label label01 = new Label(0,i,rs.getInt("stuNum")+"");
+				 UserDAO userDAO = new UserDAO();
+				 
+				 Student student = userDAO.getStudentByStuNum(rs.getInt("stuNum"));
+//System.out.println(student.getName());
+				 Label label11 = new Label(1,i,student.getName());
+				 Label label21 = new Label(2,i,rs.getString("phone"));
+				 Label label31 = new Label(3,i,rs.getString("eDate"));
+				 Label label41 = new Label(4,i,rs.getString("eTime"));
+				 Label label51 = new Label(5,i,rs.getString("symptom"));
+				 Label label61 = new Label(6,i,rs.getString("type"));
+				 
+				 sheet.addCell(label01);
+				 sheet.addCell(label11);
+				 sheet.addCell(label21);
+				 sheet.addCell(label31);
+				 sheet.addCell(label41);
+				 sheet.addCell(label51);
+				 sheet.addCell(label61);
+				
+				 i++;
+			}
+			 
+			 book.write();
+			 book.close();
+			
+           
+		} catch (SQLException | WriteException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DB.close(ps);
+		DB.close(conn);
+		return true;
 	}
 
 }
