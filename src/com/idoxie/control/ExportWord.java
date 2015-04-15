@@ -98,7 +98,7 @@ public class ExportWord extends HttpServlet {
 						appointment.getStuPhone(), appointment.geteTime(), appointment.getWay(), appointment.getAspect(), appointment.geteTeacher(), 
 						appointment.getaTime(), appointment.getReceiver(), appointment.getRemark(), appointment.getResult(), appointment.getaTeacher(), rDate);
 				RequestDispatcher view =  
-						request.getRequestDispatcher("../"+stuNum+" "+rDate+".doc");
+						request.getRequestDispatcher("../c.doc");
 				view.forward(request, response);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block

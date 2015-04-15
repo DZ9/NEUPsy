@@ -98,7 +98,7 @@ public class ExportAdvisory extends HttpServlet {
 				adh.createDoc(stu.getName(), stu.getSex(), birthday, stu.getInterest(), phone, stu.getCollege(), 
 						stu.getGrade(), stuNum, stu.getNation(), stu.getHometown(),app.getContent(),app.getSuggestion(),app.getAspect(),stu.getMajor());
 				RequestDispatcher view =  
-						request.getRequestDispatcher("../"+stuNum+" "+" advisory.doc");
+						request.getRequestDispatcher("../advisory.doc");
 				view.forward(request, response);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block

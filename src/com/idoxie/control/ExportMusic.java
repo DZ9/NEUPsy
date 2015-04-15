@@ -83,7 +83,7 @@ public class ExportMusic extends HttpServlet {
 			music.createDoc(stu.getName(),stu.getGrade(), rDateString, stu.getInterest(), phone, stu.getCollege(), stu.getGrade()
 					, stuNum, stu.getNation(), stu.getHometown(), "", "", symptom, rDate);
 			RequestDispatcher view =  
-					request.getRequestDispatcher("../"+stuNum+" "+rDate+" music.doc");
+					request.getRequestDispatcher("../music.doc");
 			view.forward(request, response);
 		}
 	}
