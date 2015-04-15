@@ -70,13 +70,15 @@ public class UpdateMusic extends HttpServlet {
 		}else {
 			String stuNum = new String(request.getParameter("stuNum").getBytes("ISO-8859-1"),"utf-8");
 			String rDateS = new String(request.getParameter("rdate").getBytes("ISO-8859-1"),"utf-8");
+			String eDate = new String(request.getParameter("eDate").getBytes("ISO-8859-1"),"utf-8");
+			String eTime = new String(request.getParameter("eTime").getBytes("ISO-8859-1"),"utf-8");
 			String type = new String(request.getParameter("type").getBytes("ISO-8859-1"),"utf-8");
 			String advice = new String(request.getParameter("advice").getBytes("ISO-8859-1"),"utf-8");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			try {
 				Date rDate = sdf1.parse(rDateS);
 				TeacherDAO teacherDAO = new TeacherDAO();
-				teacherDAO.updateMusic(Integer.parseInt(stuNum), rDate, type, advice);
+				teacherDAO.updateMusic(Integer.parseInt(stuNum), rDate, type, advice,eDate,eTime);
 				RequestDispatcher view =  
 						request.getRequestDispatcher("/view/admin/success.jsp");
 				view.forward(request, response);

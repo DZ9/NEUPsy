@@ -646,17 +646,19 @@ System.out.println(rDate);
 		return musics;
 	}
 	
-	public void updateMusic(int stuNum,Date rDate,String type,String advice) {
+	public void updateMusic(int stuNum,Date rDate,String type,String advice,String eDate,String eTime) {
 		Connection conn = DB.createConn();
 		String sql = "update t_music set type = ?, " +
-				"advice = ? where stuNum = ? and rDate = ?";
+				"advice = ?,eDate = ?,eTime = ? where stuNum = ? and rDate = ?";
 		
 		PreparedStatement ps = DB.prepare(conn, sql);
 		try {
 			ps.setString(1,type);
 			ps.setString(2, advice);
-			ps.setInt(3, stuNum);
-			ps.setDate(4, new java.sql.Date(rDate.getTime()));
+			ps.setString(3, eDate);
+			ps.setString(4, eTime);
+			ps.setInt(5, stuNum);
+			ps.setDate(6, new java.sql.Date(rDate.getTime()));
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -90,20 +90,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <input size="16" type="text" name="rdate" value="<%=rDate %>" readonly>        
               </div>
             </div>
+            <div class="control-group">
+              <span class="control-label"><label for="oldpassword">预约日期：</label></span>
+                  <div class="controls date form_date" data-date="2015-04-01" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
+                    <input size="16" type="text" name="eDate" readonly value="<%=music.geteDate() %>">
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
             
             <div class="control-group">
-              <span class="control-label"><label for="newpassword">预约日期：</label></span>
-              <div class="controls">
-                 <input size="16" type="text" name="edate" value="<%=music.geteDate() %>" readonly>        
-              </div>
+              <span class="control-label"><label for="oldpassword">预约时间段：</label></span>
+                  <div class="controls ">
+                     <select name="eTime" >
+                     <option><%=music.geteTime() %></option>
+						<option>09:00-09:50</option>
+						<option>10:00-10:50</option>
+						<option>11:00-11:50</option>
+						<option>14:00-14:50</option>
+						<option>15:00-15:50</option>
+						<option>16:00-16:50</option>
+                    </select>
+                  </div>
             </div>
-            
-             <div class="control-group">
-              <span class="control-label"><label for="newpassword">预约时间段：</label></span>
-              <div class="controls">
-                 <input size="16" type="text" name="etime" value="<%=music.geteTime() %>" readonly>        
-              </div>
-            </div>
+             
            
             
            
@@ -150,6 +160,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     forceParse: 0,
                     showMeridian: 1
                 });
+                 $('.form_date').datetimepicker({
+					language:  'zh-CN',
+					weekStart: 1,
+					todayBtn:  1,
+					autoclose: 1,
+					todayHighlight: 1,
+					startView: 2,
+					minView: 2,
+					forceParse: 0
+				});
             </script>
         </div>
         
