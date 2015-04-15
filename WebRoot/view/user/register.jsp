@@ -240,8 +240,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <input name="hometown" id="hometown" type="text">
       </div>
     </div>
+    <div class="control-group">
+      <span style="margin-left:100px">(此网站所添加的信息是为了咨询或联络方便，所有数据由心理中心妥善保管，并对其内容予以保密。)
+      </span>
+    </div>
+    
 </fieldset>
-
+		
       <div class="form-actions">
         <a href="view/user/login.jsp" class="btn">« 返回登陆</a>
         <button class="btn btn-primary" type="submit" id="sub" value="Submit">注册</button>
